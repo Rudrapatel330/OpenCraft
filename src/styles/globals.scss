@@ -1,0 +1,284 @@
+@use './variables.scss' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: $font-sans;
+  background-color: $bg-main;
+  color: $text-white;
+  color-scheme: dark;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: $bg-main;
+  color: $text-white;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-main;
+  border-left: 1px solid $border-hairline;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Typography Helpers */
+.font-mono {
+  font-family: $font-mono;
+}
+
+.font-serif-italic {
+  font-family: $font-serif;
+  font-style: italic;
+}
+
+.text-blue {
+  color: $accent-blue;
+}
+
+.text-gray {
+  color: $text-gray;
+}
+
+.text-dark-gray {
+  color: $text-dark-gray;
+}
+
+/* Base Container */
+.artcraft-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+
+  @media (min-width: 1024px) {
+    padding: 0 48px;
+  }
+}
+
+/* Sub-header Engineering Section Marker Bar */
+.sub-header-marker-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid $border-hairline;
+  border-bottom: 1px solid $border-hairline;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: $text-dark-gray;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  position: relative;
+
+  .marker-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .marker-right-spec {
+    color: $text-dark-gray;
+    letter-spacing: 0.12em;
+    font-size: 0.65rem;
+  }
+}
+
+.floating-big-label,
+.section-continuity-title {
+  font-family: $font-sans;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+  display: block;
+}
+
+/* ArtCraft Button System (1:1 with Images) */
+.btn-artcraft-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0c0c0e;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: #e4e4e7;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn-artcraft-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #111115;
+  color: #ffffff;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  border: 1px solid $border-hairline;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: #18181f;
+    border-color: $border-light;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Tag Pills */
+.pill-status {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $text-gray;
+
+  &.pill-blue {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.3);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  &.pill-orange {
+    color: #f97316;
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(249, 115, 22, 0.08);
+  }
+
+  &.pill-green {
+    color: #22c55e;
+    border-color: rgba(34, 197, 94, 0.3);
+    background: rgba(34, 197, 94, 0.08);
+  }
+}
+
+/* Right-side engineering margin ruler tick indicator */
+.artcraft-right-ruler {
+  position: fixed;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  pointer-events: none;
+  z-index: 40;
+  padding: 40px 0;
+  font-family: $font-mono;
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.2);
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  .ruler-entry {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .ruler-line {
+    width: 6px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .active-percent {
+    color: #38bdf8;
+  }
+
+  .vertical-nav-labels {
+    position: absolute;
+    right: 4px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    font-family: $font-mono;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.35);
+
+    span {
+      cursor: pointer;
+      pointer-events: auto;
+      transition: color 0.15s ease;
+
+      &:hover, &.active {
+        color: #ffffff;
+      }
+    }
+  }
+}
