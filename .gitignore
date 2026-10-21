@@ -38,3 +38,5 @@ yarn-error.log*
 /apks/
 /ScreenShots/
 /icons/
+
+tsconfig.tsbuildinfo
